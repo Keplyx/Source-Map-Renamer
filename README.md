@@ -1,8 +1,7 @@
 # map-renamer
 Map Renamer is a software made by Keplyx to help mappers in renaming their maps and all necessary files.
 
-
-#FEATURES:
+##FEATURES:
 
 - Multiplatform
 - Find all files used for your map and rename them to your new map name
@@ -11,11 +10,12 @@ Map Renamer is a software made by Keplyx to help mappers in renaming their maps 
 - You can choose which files you don't want to rename
 
 
+##How to run
+For linux users, run Start.sh, for Windows users, run Start.bat
+
 This software needs JAVA to run, if you don't have it, you can download it here: 
 https://www.java.com/download
 
-#How to run
-For linux users, run Start.sh, for Windows users, run Start.bat
 
 Software under the GNU GPL 3 licence (https://www.gnu.org/licenses/gpl.html), available in LICENCE.md provided with the software.
 
