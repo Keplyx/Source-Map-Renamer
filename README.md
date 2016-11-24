@@ -12,7 +12,7 @@ Map Renamer is a software made by Keplyx to help mappers in renaming their maps 
 - Rename content of files (eg: .kv)
 - Can rename a copy or overwrite original files
 - You can choose which files you don't want to rename
-
+- Easy to use
 
 ##How to run
 
@@ -24,4 +24,4 @@ Map Renamer is a software made by Keplyx to help mappers in renaming their maps 
 
 Software under the [GNU GPL 3 licence](https://www.gnu.org/licenses/gpl.html), available in LICENCE.md provided with the software.
 
-Made by [Keplyx](http://steamcommunity.com/id/Keplyx/): keplyx@gmail.com
+Made by [Keplyx](http://steamcommunity.com/id/Keplyx/)
