@@ -21,6 +21,21 @@ Map Renamer is a software made by Keplyx to help mappers in renaming their maps 
 
 **This software needs JAVA to run**, if you don't have it, [you can download it here](https://www.java.com/download)
 
+##Supported files
+
+- maps/XXX.bsp
+- maps/XXX.nav
+- maps/XXX.kv
+- maps/XXX_camera.txt
+- maps/XXX_level_sounds.txt
+- maps/cfg/XXX.cfg
+- resource/overviews/XXX.txt
+- resource/overviews/XXX_lower_radar.dds
+- resource/overviews/XXX_higher_radar.dds
+- resource/overviews/XXX_radar.dds
+- resource/overviews/XXX_radar_spectate.dds
+- scripts/soundscapes_XXX.txt
+
 
 Software under the [GNU GPL 3 licence](https://www.gnu.org/licenses/gpl.html), available in LICENCE provided with the software.
 
