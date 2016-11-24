@@ -22,7 +22,7 @@ Map Renamer is a software made by Keplyx to help mappers in renaming their maps 
 **This software needs JAVA to run**, if you don't have it, [you can download it here](https://www.java.com/download)
 
 
-Software under the [GNU GPL 3 licence](https://www.gnu.org/licenses/gpl.html), available in LICENCE.md provided with the software.
+Software under the [GNU GPL 3 licence](https://www.gnu.org/licenses/gpl.html), available in LICENCE provided with the software.
 
 Made by [Keplyx](http://steamcommunity.com/id/Keplyx/)
 
