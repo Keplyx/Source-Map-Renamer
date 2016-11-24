@@ -12,7 +12,7 @@ Map Renamer is a software made by Keplyx to help mappers in renaming their maps 
 
 ##How to run
 
-- linux users, run Start.sh
+- Linux users, run Start.sh
 - Windows users, run Start.bat
 
 **This software needs JAVA to run**, if you don't have it, [you can download it here](https://www.java.com/download)
