@@ -21,6 +21,17 @@ Map Renamer is a software made by Keplyx to help mappers in renaming their maps 
 
 **This software needs JAVA to run**, if you don't have it, [you can download it here](https://www.java.com/download)
 
+##How to use
+
+1. First, select your csgo folder. *eg: [steam directory]/Counter-Strike Global Offensive/csgo*
+2. Then enter your old map name without .bsp, or select it in the file browser. *eg: de_dust2*
+3. Click on Find, and a list of all found files will be displayed
+4. If you don't want to rename some of the files, select them and click on Do not rename selected
+5. You can choose to overwrite the original file, but this is not recommended (having backups is always good)
+6. Enter your new map name without .bsp. *eg: de_dust3*
+7. Finally, click on Rename! If you are renaming a copy of a complex map (like de_nuke) it can take some time
+
+
 ##Supported files
 
 - maps/XXX.bsp
