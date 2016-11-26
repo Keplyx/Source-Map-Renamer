@@ -59,5 +59,5 @@ Software under the [GNU GPL 3 licence](https://www.gnu.org/licenses/gpl.html), a
 
 Made by [Keplyx](http://steamcommunity.com/id/Keplyx/)
 
-
+##Preview image
 ![map renamer](https://cloud.githubusercontent.com/assets/23726131/20607393/1a1e8188-b278-11e6-9ffb-fa66e02e66c5.png)
