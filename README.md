@@ -1,8 +1,15 @@
 # Map Renamer [CSGO]
 Map Renamer is a software made by Keplyx to help mappers in renaming their maps and all necessary files.
+It renames maps under the csgo directory, it will not rename the .vmf, so compile your map before trying to rename it.
 
 **It doesn't rename packed files! Be sure to rename your map before packing files into it!**
 
+
+**Why create this software?**
+
+Because some maps can become complex and need a lot of files to work (eg: .kv for custom models, .cfg for custom rules, .dds for radars..., *see below for a list of all supported files*). While you can easily rename your map by saving your .vmf to a different name, then compiling, it will only rename the .bsp, not every other file. So those files will not work anymore with your renamed map, and you have to change the name of every needed file (sometimes the content of the file itself) to make them work again. This software helps you by renaming every file and its content related to your map, so you don't have to worry about that. It can also help you making backups as it can copy you map/files and rename that copy.
+
+I'm in no way an expert programmer, so I hope you will like this software!
 
 
 ##FEATURES
