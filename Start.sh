@@ -1,2 +1,2 @@
 #!/bin/bash 
-java -jar "Map Renamer [CSGO].jar"
+java -jar "SourceMapRenamer.jar"
