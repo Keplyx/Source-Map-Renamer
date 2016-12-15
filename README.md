@@ -1,6 +1,6 @@
-# Map Renamer [CSGO]
+# Source Map Renamer
 Map Renamer is a software made by Keplyx to help mappers in renaming their maps and all necessary files.
-It renames maps under the csgo directory, it will not rename the .vmf, so compile your map before trying to rename it.
+It renames maps under the game directory, it will not rename the .vmf, so compile your map before trying to rename it.
 
 **It doesn't rename packed files! Be sure to rename your map before packing files into it!**
 
@@ -15,6 +15,7 @@ I'm in no way an expert programmer, so I hope you will like this software!
 ##FEATURES
 
 - Multiplatform
+- Work on source games
 - Find all files used for your map and rename them to your new map name
 - Rename content of files (eg: .kv)
 - Can rename a copy or overwrite original files
@@ -30,7 +31,7 @@ I'm in no way an expert programmer, so I hope you will like this software!
 
 ##How to use
 
-1. First, select your csgo folder. *eg: [steam directory]/Counter-Strike Global Offensive/csgo*
+1. First, select your game folder. *eg: [steam directory]/Counter-Strike Global Offensive/csgo*
 2. Then enter your old map name without .bsp, or select it in the file browser. *eg: de_dust2*
 3. Click on Find, and a list of all found files will be displayed
 4. If you don't want to rename some of the files, select them and click on Do not rename selected
