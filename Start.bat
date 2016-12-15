@@ -1,2 +1,2 @@
 #echo off
-java -jar "Map Renamer [CSGO].jar"
+java -jar "SourceMapRenamer.jar"
