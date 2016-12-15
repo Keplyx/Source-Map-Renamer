@@ -74,6 +74,8 @@ public class MapRenameUI extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         consoleTextArea = new javax.swing.JTextArea();
         setDefaultButton = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         JMenu1 = new javax.swing.JMenu();
         exitMenuItem = new javax.swing.JMenuItem();
@@ -91,16 +93,22 @@ public class MapRenameUI extends javax.swing.JFrame {
         mapFileChooser.setFileFilter(new FileNameExtensionFilter("Valve map files (.bsp)", "bsp"));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Map Renamer [CSGO]");
+        setTitle("Source Map Renamer");
+        setSize(new java.awt.Dimension(0, 0));
 
-        csgoDirField.setToolTipText("Path to the csgo folder");
+        csgoDirField.setToolTipText("Path to the game folder");
+        csgoDirField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                csgoDirFieldActionPerformed(evt);
+            }
+        });
         csgoDirField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 csgoDirFieldKeyTyped(evt);
             }
         });
 
-        jLabel1.setText("CSGO Directory:");
+        jLabel1.setText("Game Directory:");
 
         jLabel2.setText("Map Name:");
 
@@ -195,8 +203,17 @@ public class MapRenameUI extends javax.swing.JFrame {
             }
         });
 
+        jTextArea1.setEditable(false);
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Rename your map before packing\ncustom content / building cubemaps\nor it won't work properly.\n\nRenaming a copy can take a while if\nyour map is big, just wait.\n\nNot finding a file for your map?\nContact me at keplyx@gmail.com");
+        jTextArea1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tips", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        jTextArea1.setOpaque(false);
+        jScrollPane3.setViewportView(jTextArea1);
+
         JMenu1.setText("File");
 
+        exitMenuItem.setIcon(new javax.swing.ImageIcon("/home/keplyx/Téléchargements/cancel-146131_640.png")); // NOI18N
         exitMenuItem.setText("Exit");
         exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -209,7 +226,8 @@ public class MapRenameUI extends javax.swing.JFrame {
 
         JMenu2.setText("Help");
 
-        helpMenuItem.setText("Help Content");
+        helpMenuItem.setIcon(new javax.swing.ImageIcon("/home/keplyx/Téléchargements/help.png")); // NOI18N
+        helpMenuItem.setText("Help Contents");
         helpMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 helpMenuItemActionPerformed(evt);
@@ -217,6 +235,7 @@ public class MapRenameUI extends javax.swing.JFrame {
         });
         JMenu2.add(helpMenuItem);
 
+        supportedFilesMenuItem.setIcon(new javax.swing.ImageIcon("/home/keplyx/Téléchargements/supported.png")); // NOI18N
         supportedFilesMenuItem.setText("Supported Files");
         supportedFilesMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,6 +244,7 @@ public class MapRenameUI extends javax.swing.JFrame {
         });
         JMenu2.add(supportedFilesMenuItem);
 
+        creditsMenuItem.setIcon(new javax.swing.ImageIcon("/home/keplyx/Téléchargements/about.png")); // NOI18N
         creditsMenuItem.setText("About");
         creditsMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -234,6 +254,7 @@ public class MapRenameUI extends javax.swing.JFrame {
         JMenu2.add(creditsMenuItem);
         JMenu2.add(jSeparator1);
 
+        reportMenuItem.setIcon(new javax.swing.ImageIcon("/home/keplyx/Téléchargements/report.png")); // NOI18N
         reportMenuItem.setText("Report Issue");
         reportMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -282,9 +303,13 @@ public class MapRenameUI extends javax.swing.JFrame {
                             .addComponent(overwriteCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(removeListButton, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(removeListButton)
+                                .addGap(47, 47, 47))
+                            .addComponent(jScrollPane3))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -302,13 +327,14 @@ public class MapRenameUI extends javax.swing.JFrame {
                     .addComponent(mapNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(selectMapButton, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(findMapButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addComponent(removeListButton)))
+                        .addGap(12, 12, 12)
+                        .addComponent(removeListButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(overwriteCheck)
                 .addGap(18, 18, 18)
@@ -342,7 +368,7 @@ public class MapRenameUI extends javax.swing.JFrame {
         csgoDirFileChooser.showOpenDialog(this);
         if (csgoDirFileChooser.getSelectedFile() != null) {
             csgoDirField.setText(csgoDirFileChooser.getSelectedFile().getPath());
-            writeToConsole("CSGO directory set to: " + csgoDirFileChooser.getSelectedFile().getPath() + "\n");
+            writeToConsole("Game directory set to: " + csgoDirFileChooser.getSelectedFile().getPath() + "\n");
             clearList();
         }
     }//GEN-LAST:event_selectFolderButtonActionPerformed
@@ -364,7 +390,7 @@ public class MapRenameUI extends javax.swing.JFrame {
     }//GEN-LAST:event_creditsMenuItemActionPerformed
 
     private void helpMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpMenuItemActionPerformed
-        JOptionPane.showMessageDialog(this, "First, select your csgo folder. eg: [steam directory]/Counter-Strike Global Offensive/csgo.\n"
+        JOptionPane.showMessageDialog(this, "First, select your game folder. eg: [steam directory]/Counter-Strike Global Offensive/csgo.\n"
                 + "Then enter your old map name without .bsp. eg: de_dust2.\n"
                 + "Click on Find, and a list of all found files will be displayed.\n"
                 + "If you don't want to rename some of the files, select them and click on Do not rename selected.\n"
@@ -442,6 +468,10 @@ public class MapRenameUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_setDefaultButtonActionPerformed
 
+    private void csgoDirFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_csgoDirFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_csgoDirFieldActionPerformed
+
     public void writeToConsole(String message) {
         consoleTextArea.append(message);
     }
@@ -464,7 +494,7 @@ public class MapRenameUI extends javax.swing.JFrame {
 
         if (!finder.findAll(this, mapNameField.getText())) {
             JOptionPane.showMessageDialog(this, "Sub-folders not found\n"
-                    + "Make sure your csgo folder is correct\n"
+                    + "Make sure your game folder is correct\n"
                     + HELPMESSAGE, "Warning!", JOptionPane.WARNING_MESSAGE);
             writeToConsole("Error: Sub-folders not found\n");
         } else if (model.getSize() == 0) {
@@ -560,7 +590,7 @@ public class MapRenameUI extends javax.swing.JFrame {
                 BufferedReader br = new BufferedReader(new FileReader(file));
                 csgoDirField.setText(br.readLine());
                 br.close();
-                writeToConsole("Setting default CSGO folder to: " + csgoDirField.getText() + "\n");
+                writeToConsole("Setting default game folder to: " + csgoDirField.getText() + "\n");
             } catch (IOException ex) {
                 writeToConsole("Could not open " + DEFAULTFILE + "\n");
             }
@@ -612,7 +642,9 @@ public class MapRenameUI extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JFileChooser mapFileChooser;
     private javax.swing.JTextField mapNameField;
     private javax.swing.JTextField newMapNameField;
