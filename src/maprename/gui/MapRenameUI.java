@@ -26,6 +26,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.swing.DefaultListModel;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -44,6 +45,7 @@ public class MapRenameUI extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setDefault();
+        helpDial = new HelpDialog(this, false);
     }
 
     /**
@@ -76,13 +78,14 @@ public class MapRenameUI extends javax.swing.JFrame {
         setDefaultButton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        helpButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         JMenu1 = new javax.swing.JMenu();
         exitMenuItem = new javax.swing.JMenuItem();
         JMenu2 = new javax.swing.JMenu();
         helpMenuItem = new javax.swing.JMenuItem();
         supportedFilesMenuItem = new javax.swing.JMenuItem();
-        creditsMenuItem = new javax.swing.JMenuItem();
+        aboutMenuItem = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         reportMenuItem = new javax.swing.JMenuItem();
 
@@ -97,19 +100,16 @@ public class MapRenameUI extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(0, 0));
 
         csgoDirField.setToolTipText("Path to the game folder");
-        csgoDirField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                csgoDirFieldActionPerformed(evt);
-            }
-        });
         csgoDirField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 csgoDirFieldKeyTyped(evt);
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/source_logo.png"))); // NOI18N
         jLabel1.setText("Game Directory:");
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/old map logo.png"))); // NOI18N
         jLabel2.setText("Map Name:");
 
         mapNameField.setToolTipText("Do not include .bsp!");
@@ -124,6 +124,7 @@ public class MapRenameUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/map logo.png"))); // NOI18N
         jLabel4.setText("New Map Name:");
 
         newMapNameField.setToolTipText("Do not include .bsp!");
@@ -134,6 +135,7 @@ public class MapRenameUI extends javax.swing.JFrame {
         });
 
         renameButton.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        renameButton.setForeground(new java.awt.Color(0, 153, 0));
         renameButton.setText("Rename!");
         renameButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         renameButton.addActionListener(new java.awt.event.ActionListener() {
@@ -151,6 +153,8 @@ public class MapRenameUI extends javax.swing.JFrame {
             }
         });
 
+        removeListButton.setForeground(new java.awt.Color(204, 0, 0));
+        removeListButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cancel-146131_640.png"))); // NOI18N
         removeListButton.setText("Do not rename selected");
         removeListButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,6 +194,7 @@ public class MapRenameUI extends javax.swing.JFrame {
 
         consoleTextArea.setEditable(false);
         consoleTextArea.setColumns(20);
+        consoleTextArea.setForeground(new java.awt.Color(102, 102, 102));
         consoleTextArea.setRows(5);
         consoleTextArea.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         consoleTextArea.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -211,9 +216,18 @@ public class MapRenameUI extends javax.swing.JFrame {
         jTextArea1.setOpaque(false);
         jScrollPane3.setViewportView(jTextArea1);
 
+        helpButton.setForeground(new java.awt.Color(0, 153, 204));
+        helpButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/help.png"))); // NOI18N
+        helpButton.setText("Help");
+        helpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                helpButtonActionPerformed(evt);
+            }
+        });
+
         JMenu1.setText("File");
 
-        exitMenuItem.setIcon(new javax.swing.ImageIcon("/home/keplyx/Téléchargements/cancel-146131_640.png")); // NOI18N
+        exitMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cancel-146131_640.png"))); // NOI18N
         exitMenuItem.setText("Exit");
         exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -226,7 +240,7 @@ public class MapRenameUI extends javax.swing.JFrame {
 
         JMenu2.setText("Help");
 
-        helpMenuItem.setIcon(new javax.swing.ImageIcon("/home/keplyx/Téléchargements/help.png")); // NOI18N
+        helpMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/help.png"))); // NOI18N
         helpMenuItem.setText("Help Contents");
         helpMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,7 +249,7 @@ public class MapRenameUI extends javax.swing.JFrame {
         });
         JMenu2.add(helpMenuItem);
 
-        supportedFilesMenuItem.setIcon(new javax.swing.ImageIcon("/home/keplyx/Téléchargements/supported.png")); // NOI18N
+        supportedFilesMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/supported.png"))); // NOI18N
         supportedFilesMenuItem.setText("Supported Files");
         supportedFilesMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -244,17 +258,17 @@ public class MapRenameUI extends javax.swing.JFrame {
         });
         JMenu2.add(supportedFilesMenuItem);
 
-        creditsMenuItem.setIcon(new javax.swing.ImageIcon("/home/keplyx/Téléchargements/about.png")); // NOI18N
-        creditsMenuItem.setText("About");
-        creditsMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        aboutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/about.png"))); // NOI18N
+        aboutMenuItem.setText("About");
+        aboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                creditsMenuItemActionPerformed(evt);
+                aboutMenuItemActionPerformed(evt);
             }
         });
-        JMenu2.add(creditsMenuItem);
+        JMenu2.add(aboutMenuItem);
         JMenu2.add(jSeparator1);
 
-        reportMenuItem.setIcon(new javax.swing.ImageIcon("/home/keplyx/Téléchargements/report.png")); // NOI18N
+        reportMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/report.png"))); // NOI18N
         reportMenuItem.setText("Report Issue");
         reportMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -298,18 +312,17 @@ public class MapRenameUI extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(setDefaultButton))))
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+                            .addComponent(helpButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(removeListButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(renameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(overwriteCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(removeListButton)
-                                .addGap(47, 47, 47))
-                            .addComponent(jScrollPane3))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -328,13 +341,15 @@ public class MapRenameUI extends javax.swing.JFrame {
                     .addComponent(selectMapButton, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(findMapButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(removeListButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(helpButton)))
                 .addGap(18, 18, 18)
                 .addComponent(overwriteCheck)
                 .addGap(18, 18, 18)
@@ -381,22 +396,16 @@ public class MapRenameUI extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
-    private void creditsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditsMenuItemActionPerformed
+    private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
         JOptionPane.showMessageDialog(this, "Made by Keplyx\n"
                 + "Contact: keplyx@gmail.com\n"
                 + "\nLicenced under GNU 3.0 (https://www.gnu.org/licenses/gpl.html)\n"
                 + "(See LICENCE.txt provided with the software)\n"
                 + "Made in Java (JDK 8)", "About", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_creditsMenuItemActionPerformed
+    }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void helpMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpMenuItemActionPerformed
-        JOptionPane.showMessageDialog(this, "First, select your game folder. eg: [steam directory]/Counter-Strike Global Offensive/csgo.\n"
-                + "Then enter your old map name without .bsp. eg: de_dust2.\n"
-                + "Click on Find, and a list of all found files will be displayed.\n"
-                + "If you don't want to rename some of the files, select them and click on Do not rename selected.\n"
-                + "You can choose to overwrite the original file, but this is not recommended (having backups is always good).\n"
-                + "Enter your new map name without .bsp. eg: de_dust3.\n"
-                + "Finally, click on Rename!", "Help", JOptionPane.INFORMATION_MESSAGE);
+        showHelp();
     }//GEN-LAST:event_helpMenuItemActionPerformed
 
     private void findMapButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findMapButtonActionPerformed
@@ -468,10 +477,24 @@ public class MapRenameUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_setDefaultButtonActionPerformed
 
-    private void csgoDirFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_csgoDirFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_csgoDirFieldActionPerformed
+    private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
+        showHelp();
+    }//GEN-LAST:event_helpButtonActionPerformed
 
+    
+    public void showHelp(){
+        
+        helpDial.setVisible(true);
+//        JOptionPane.showMessageDialog(this, "First, select your game folder. eg: [steam directory]/Counter-Strike Global Offensive/csgo.\n"
+//                + "Then enter your old map name without .bsp. eg: de_dust2.\n"
+//                + "Click on Find, and a list of all found files will be displayed.\n"
+//                + "If you don't want to rename some of the files, select them and click on Do not rename selected.\n"
+//                + "You can choose to overwrite the original file, but this is not recommended (having backups is always good).\n"
+//                + "Enter your new map name without .bsp. eg: de_dust3.\n"
+//                + "Finally, click on Rename!", "Help", JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    
     public void writeToConsole(String message) {
         consoleTextArea.append(message);
     }
@@ -625,16 +648,20 @@ public class MapRenameUI extends javax.swing.JFrame {
     private final String HELPMESSAGE = "\nFor more infos, click on 'Help', 'Help Content'";
     private final String DEFAULTFILE = "default";
 
+    private JDialog helpDial;
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu JMenu1;
     private javax.swing.JMenu JMenu2;
+    private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JTextArea consoleTextArea;
-    private javax.swing.JMenuItem creditsMenuItem;
     private javax.swing.JTextField csgoDirField;
     private javax.swing.JFileChooser csgoDirFileChooser;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JList<String> filesFoundList;
     private javax.swing.JButton findMapButton;
+    private javax.swing.JButton helpButton;
     private javax.swing.JMenuItem helpMenuItem;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
