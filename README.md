@@ -61,5 +61,5 @@ Software under the [GNU GPL 3 licence](https://www.gnu.org/licenses/gpl.html), a
 Made by [Keplyx](http://steamcommunity.com/id/Keplyx/)
 
 ##Preview image
-![screen](https://cloud.githubusercontent.com/assets/23726131/21276756/24a26a9a-c3d3-11e6-8358-e116f11f4cfd.png)
+![screenshot_20161218_170638](https://cloud.githubusercontent.com/assets/23726131/21294732/66e602aa-c544-11e6-8e37-85880e2eb41e.png)
 
