@@ -12,7 +12,7 @@ Because some maps can become complex and need a lot of files to work (eg: .kv fo
 I'm in no way an expert programmer, so I hope you will like this software!
 
 
-##FEATURES
+## FEATURES
 
 - Multiplatform
 - Work on source games
@@ -22,14 +22,14 @@ I'm in no way an expert programmer, so I hope you will like this software!
 - You can choose which files you don't want to rename
 - Easy to use
 
-##How to run
+## How to run
 
 - Linux users, run Start.sh
 - Windows users, run Start.bat
 
 **This software needs JAVA to run**, if you don't have it, [you can download it here](https://www.java.com/download)
 
-##How to use
+## How to use
 
 1. First, select your game folder. *eg: [steam directory]/Counter-Strike Global Offensive/csgo*
 2. Then enter your old map name without .bsp, or select it in the file browser. *eg: de_dust2*
@@ -40,7 +40,7 @@ I'm in no way an expert programmer, so I hope you will like this software!
 7. Finally, click on Rename! If you are renaming a copy of a complex map (like de_nuke) it can take some time
 
 
-##Supported files
+## Supported files
 
 - maps/XXX.bsp
 - maps/XXX.nav
@@ -60,6 +60,6 @@ Software under the [GNU GPL 3 licence](https://www.gnu.org/licenses/gpl.html), a
 
 Made by [Keplyx](http://steamcommunity.com/id/Keplyx/)
 
-##Preview image
+## Preview image
 ![screenshot_20161218_170638](https://cloud.githubusercontent.com/assets/23726131/21294762/fe63e50c-c544-11e6-9f5a-1b2d32448e39.png)
 
